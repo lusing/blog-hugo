@@ -1,4 +1,9 @@
-# vscode插件快餐教程(9) - LSP补全与本地补全
+---
+title: "vscode插件快餐教程(9) - LSP补全与本地补全"
+date: 2022-08-23T00:14:58+08:00
+draft: false
+---
+
 
 我们接续第5讲未介绍完的LSP的onCompletion补全的部分。
 

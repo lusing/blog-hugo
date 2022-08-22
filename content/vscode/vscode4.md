@@ -1,4 +1,8 @@
-# vscode插件快餐教程(4) - 语言服务器协议lsp
+---
+title: "vscode插件快餐教程(4) - 语言服务器协议lsp"
+date: 2022-08-23T00:14:58+08:00
+draft: false
+---
 
 语言服务器协议lsp是vscode为了解决语言扩展中的痛点来实现的一套协议。如下图所示：
 ![LSP](https://upload-images.jianshu.io/upload_images/1638145-10065f6b17718ddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

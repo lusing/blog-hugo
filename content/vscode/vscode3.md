@@ -1,4 +1,8 @@
-# vscode插件快餐教程(3) - Diagnostic
+---
+title: "vscode插件快餐教程(3) - Diagnostic"
+date: 2022-08-23T00:14:58+08:00
+draft: false
+---
 
 上一节我们介绍了语言扩展的大致情况，这一节我们开始深入一些细节。
 
