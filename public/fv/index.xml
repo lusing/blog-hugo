@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fvs on Xulun</title>
+    <link>http://lusing.cn/fv/</link>
+    <description>Recent content in Fvs on Xulun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language><atom:link href="http://lusing.cn/fv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://lusing.cn/fv/fv1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://lusing.cn/fv/fv1/</guid>
+      <description>操作系统形式化验证实践教程(1) - 证明第一个定理 形式化方法分为三个主要部分：系统建模(System Modeling)、形式规约(Formal Specification)和形式化验证(Formal Verification)。 其中系统建模用形式化的模型来描述系统及其行为模式。建模完成后，需要用形式规约来精确描述建模出来的需求。有了规约，如何检验是否符合规约呢?这就需要形式化验证方法。
+形式化验证方法主要分为两类：一类是以穷尽搜索为基础的模型检测，另一类是以逻辑推理为基础的演绎逻辑。相对于前者，后者既可以验证有穷的状态系统，也可以使用归纳法来处理无限状态的问题。
+演绎逻辑在早期发展很快，但是后来在大规模软件验证上成本较高，所以发展一直不快。但是，最近十几年，以seL4为代表的操作系统和CompCert为代表的编译器的正确性证明的完成，给形式化验证带来了重要的突破性进展。 这也带来了两大流派：seL4所使用的Isabelle/HOL工具和CompCert所使用的Coq工具。 Isabelle是基于Standard ML语言开发的，支持生成Standard ML, ocaml, Haskell和Scala语言的代码。而Coq是基于ocaml语言的。
+波澜壮阔的操作系统级的验证全景，我们后面会徐徐展开。做为一个落地的教程，我们千里之行始于足下，先从Isabelle/HOL工具的使用开始说起。
+Isabelle/HOL简介 Isabelle/HOL可以通过下面的网址下载和安装：https://www.cl.cam.ac.uk/research/hvg/Isabelle/installation.html。支持Linux/mac/Windows平台。
+以Linux为例，我们可以先通过wget工具下载tar.gz包：
+wget -c https://www.cl.cam.ac.uk/research/hvg/Isabelle/dist/Isabelle2020_linux.tar.gz HOL是High Order Logic，即高阶逻辑的缩写。
+废话不多说，Isabelle封装在jEdit中，有完整的集成开发环境。我们安装好了之后直接打开看一眼：
+有几点不跟普通编程语言的不同之处：
+HOL的代码以theory组织在一起 theory之下有函数fun,值value, 有公式lemma, theorem等 当我们把光标放到lemma或theorem中时，发现系统可以自动帮我们做一些推理的验证 HOL代码中大量使用非ASCII符号，可能给用惯了ASCII字符的程序员们带来一定的不适应，但是可读性绝对比用ASCII表示要上一个层次 自动证明第一个定理 同其它编程语言类似，HOL也有自己的数据类型系统。我们先从最简单的布尔类型开始。
+HOL支持bool来表示布尔类型。用True表示真值，False表示假值。 取反为$\lnot$, 取交为$\land$，取并为$\lor$。
+下面我们写一个求布尔交的函数。 交函数的输入为两个bool，输出也是一个bool. 我们用&amp;quot;bool ⇒ bool ⇒ bool&amp;quot;来描述这个函数的类型。 “⇒”的输入方法是用TeX值：&amp;lt;\Rightarrow&amp;gt;. HOL语句要用字符串符号&amp;quot;&amp;ldquo;来括起来，原理我们后面再讲。 代码逻辑上，除了输入为True和True返回True之外，其它都返回False:
+fun conj2 :: &amp;#34;bool ⇒ bool ⇒ bool&amp;#34; where &amp;#34;conj2 True True = True&amp;#34;| &amp;#34;conj2 _ _ = False&amp;#34; 下面高光时刻来了，我们来用Isabelle/HOL证明我们学习之旅中的第一个定理False与另一个布尔值取conj2操作，结果一定为False。
+lemma conj_02: &amp;#34;conj2 False m = False&amp;#34; apply(induction m) apply(auto) done apply(induction m)和apply(auto)的作用是让HOL自动帮我们推断证明。 把光标放到apply(auto)语句，我们从output窗口看到：</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://lusing.cn/fv/fv2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://lusing.cn/fv/fv2/</guid>
+      <description>操作系统形式化验证实践教程(2) - HOL列表与集合 在进入相对比较烧脑的证明过程之前，我们先熟悉下HOL语言中处理列表和集合数据结构的部分。 这部分各种函数式语言其实是大同小异的，学习成本比较低。
+列表类型 HOL的列表类型与别的语言比较像，也是使用[]来表示。类型只要相同就可以，比如我们以整数类型列表为例：
+value &amp;#34;[uminus int(1),int(0),int(1)]&amp;#34; 值和类型如下：
+&amp;#34;[- 1, 0, 1]&amp;#34;:: &amp;#34;int list&amp;#34; []是Nil，是空列表。 除了用[int1,int2]这样表示外，也可以用int1 # int2 # []的方式来描述。#是Cons操作，为将两个列表连接在一起的操作。
+来看个例子：
+value &amp;#34;nat(2) # nat(10)# []&amp;#34; 值为：
+&amp;#34;[2, 10]&amp;#34;:: &amp;#34;nat list&amp;#34; 可以用&amp;quot;..&amp;ldquo;来生成序列，例：
+value &amp;#34;[int(1)..int(10)]&amp;#34; 值为：
+&amp;#34;[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]&amp;#34;:: &amp;#34;int list&amp;#34; 求表头 hd函数用于求列表表头。 例：
+value &amp;#34;hd [int(1),int(3),int(5)]&amp;#34; 结果为：
+&amp;#34;1&amp;#34;:: &amp;#34;int&amp;#34; 除表头外剩余部分 用tl函数来求除表头外剩余部分，比如下表，就是除掉表头1之后，2到10的列表：
+value &amp;#34;tl [int(1)..int(10)]&amp;#34; 结果为：
+&amp;#34;[2, 3, 4, 5, 6, 7, 8, 9, 10]&amp;#34;:: &amp;#34;int list&amp;#34; 求表尾元素 与tl不同，last用来求最后一个元素，例：</description>
+    </item>
+    
+  </channel>
+</rss>
