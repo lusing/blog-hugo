@@ -1,0 +1,4 @@
+baseURL = 'http://lusing.cn'
+languageCode = 'zh-CN'
+title = 'Xulun'
+theme = 'hugo-theme-learn'
