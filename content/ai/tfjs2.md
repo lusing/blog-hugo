@@ -1,4 +1,8 @@
-# TensorFlow.js机器学习教程(2) - js味儿的张量操作
+---
+title: "TensorFlow.js机器学习教程(2) - js味儿的张量操作"
+date: 2022-08-23T00:14:58+08:00
+draft: false
+---
 
 既然我们使用TensorFlow.js来写机器学习代码而不是用Python版的TensorFlow和PyTorch，我们还是希望让代码充满js本身的味道。
 

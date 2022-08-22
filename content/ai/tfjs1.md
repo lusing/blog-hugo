@@ -1,4 +1,8 @@
-# TensorFlow.js机器学习教程(1) - 穿梭于浏览器与node间
+---
+title: "TensorFlow.js机器学习教程(1) - 穿梭于浏览器与node间"
+date: 2022-08-23T00:14:58+08:00
+draft: false
+---
 
 ![](https://gw.alicdn.com/imgextra/i4/O1CN01SvbpK71x8KjVYFTqY_!!6000000006398-0-tps-1254-552.jpg)
 
